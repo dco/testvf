@@ -1,6 +1,7 @@
 {
   "routes": [
-		{ "src": "/(.*)", "dest": "/api/index" },
-		{ "src": "/(.*)", "status": 404, "dest": "/api/index" }
-		]
+		{ "src": "/(.*)", "dest": "/api/index" }
+
+		],
+  "rewrites": [{ "source": "/api/(.*)", "status": 404, "destination": "/api/index" }]
 }
