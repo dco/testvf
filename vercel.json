@@ -1,6 +1,6 @@
 {
   "routes": [
-		{ "src": "/(.*)", "methods": ["POST"], "dest": "/api/index" }
+		{ "src": "/(.*)", "methods": ["POST","GET"], "dest": "/api/index" }
 
 		]
 
