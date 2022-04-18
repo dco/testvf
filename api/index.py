@@ -7,7 +7,7 @@ connect(host="mongodb+srv://nodebb:9rGHFMefugTeASfF@cluster0.ntvar.mongodb.net/D
 class Users(Document):
     email = StringField(max_length=200, required=True)
     tk = StringField()
-    date_modified = DateTimeField(default=datetime.datetime.now())
+    date_modified = DateTimeField(default=datetime.datetime.utcnow()+datetime.timedelta(hours=8))
 
 
 user1 = Users(
