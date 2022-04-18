@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from mongoengine import *
 import datetime
 
@@ -7,16 +7,9 @@ connect(host="mongodb+srv://nodebb:9rGHFMefugTeASfF@cluster0.ntvar.mongodb.net/D
 class Users(Document):
     email = StringField(max_length=200, required=True)
     tk = StringField()
-    date_modified = DateTimeField(default=datetime.datetime.utcnow()+datetime.timedelta(hours=8))
+    update_time = DateTimeField(default=datetime.datetime.utcnow()+datetime.timedelta(hours=8))
 
-
-user1 = Users(
-    email = 'test@test.com',
-    tk = 'abcdefg'
-    )
-
-user1.save()
-print(user1.email)
+user = Users()
 
 app = Flask(__name__)
 
@@ -24,9 +17,14 @@ app = Flask(__name__)
 def hello():
     return 'Hello, world'
 
-@app.route('/test')
-def test():
-    return user1.email
+@app.route('/reg')
+def reg():
+    if request.method=='POST':
+        user.email = request.form['email']
+        user.update_time = datetime.datetime.utcnow()+datetime.timedelta(hours=8)
+        user.tk = 'testmd5'
+        user.save()
+    return user.email
 
 @app.route('/result')
 def result():
