@@ -24,7 +24,9 @@ def reg():
         user.update_time = datetime.datetime.utcnow()+datetime.timedelta(hours=8)
         user.tk = 'testmd5'
         user.save()
-    return user.email
+        return user.email
+    else:
+        return 'get is method!'
 
 @app.route('/result')
 def result():
