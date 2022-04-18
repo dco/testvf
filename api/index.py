@@ -17,16 +17,13 @@ app = Flask(__name__)
 def hello():
     return 'Hello, world'
 
-@app.route('/reg')
+@app.route('/reg', methods=['POST'])
 def reg():
-    if request.method=='POST':
-        user.email = request.form['email']
-        user.update_time = datetime.datetime.utcnow()+datetime.timedelta(hours=8)
-        user.tk = 'testmd5'
-        user.save()
-        return user.email
-    else:
-        return 'get is method!'
+    user.email = request.form['email']
+    user.update_time = datetime.datetime.utcnow()+datetime.timedelta(hours=8)
+    user.tk = 'testmd5'
+    user.save()
+    return 'adcpost'
 
 @app.route('/result')
 def result():
