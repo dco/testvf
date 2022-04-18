@@ -15,17 +15,36 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
+    
     return 'Hello, world'
+
 
 @app.route('/reg', methods=['POST'])
 def reg():
+    user = Users.objects.filter(email=request.form['email'])
+    if user:
+        user.email = request.form['email']
+        user.update_time = datetime.datetime.utcnow()+datetime.timedelta(hours=8)
+        user.tk = 'testmd5'
+        user.save()
+        return 'is not exist!'
+    else:
+        user.update_time = datetime.datetime.utcnow()+datetime.timedelta(hours=8)
+        user.tk = 'is exists'
+        user.save()
+        return 'is exists'
+        
+
+    '''
     user.email = request.form['email']
     user.update_time = datetime.datetime.utcnow()+datetime.timedelta(hours=8)
     user.tk = 'testmd5'
     user.save()
     return 'adcpost'
+    '''
 
 @app.route('/result')
 def result():
    dict = {'phy':50,'che':60,'maths':70}
    return render_template('result.html', result = dict)
+
