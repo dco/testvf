@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<title>获取Token | Dcocd</title>
+	<link rel="icon" type="image/png" sizes="16x16" href="https://dco.gitee.io/safari-pinned-tab.svg">
+	<meta name="msapplication-TileColor" content="#fdcb04" />
+	<meta name="theme-color" content="#fdcb04" />
+    <link rel="stylesheet" href="./lib/normalize.css">
+    <link rel="stylesheet" href="./lib/additional.css">
+    <link rel="stylesheet" href="./lib/style.css">
+	<script src="https://js.hcaptcha.com/1/api.js?hl=zh-CN" async defer></script>
+
+</head>
+
+<body>
+    <div class="container mb-50">
+        <div class="main">
+            <div class="card">
+                <div class="mobile-device">
+                    <div class="heading">
+                        <div class="logo">
+                            <img src="https://dco.gitee.io/svg/avatar.svg" style="height: 100px;">
+                        </div>
+                        <p class="tagline">Token即Token，Token即Passwork</p>
+                    </div>
+                    <div class="login-form">
+                        <form action="#">
+                            <div class="OAuth">
+                                <div class="login-google">
+                                    <button class="button flex center justify-center">
+                                        <img src="https://dashboard.hcaptcha.com/static/media/google.67ed52cb.svg" alt="google">
+                                        <div class="pl-6">
+                                            通过谷歌获取Token
+                                        </div>
+                                    </button>
+                                </div>
+                                <div class="login-apple">
+                                    <button class="button flex center justify-center">
+                                        <img src="https://dashboard.hcaptcha.com/static/media/github.49604391.svg" alt="apple">
+                                        <div class="pl-6">
+                                            通过Github获取Token
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                            <hr class="hr-text" data-content="or">
+                            <input type="text" class="form__input mb-8" name="email" id="email" placeholder="输入常用邮箱">
+							<div class="h-captcha" data-sitekey="bf3450d8-f636-4f7b-b99f-f78abe379cea"></div>
+                            <button class="button btn-submit button_green border-none text-white mb-8">
+                                获取
+                            </button>
+                            <div class="blank_space"></div>
+                            <div class="remember-me text-center mb-8">
+                                <input type="checkbox" name="remember_me" id="remember_me"> <label for="remember_me">Token有效期30天</label>
+                            </div>
+                            <div class="blank_space"></div>
+							
+                        </form>
+                    </div>
+
+                    <div class="create-account text-center">
+                        <div class="create-account_question">请输入正确邮箱地址，Token将发送到此邮箱。
+						</div>
+                        
+                    </div>
+					
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-wrapper text-center pb-20">
+            <a href="https://dcocd.com/" class="footer-item border-r">Dcocd</a>
+            <a href="https://coco.dcocd.com" class="footer-item border-r">CoCo</a>
+            <span class="footer-item">Copyright 2020 Dco. All rights reserved.</span>
+        </div>
+    </div>
+</body>
+
+</html>
