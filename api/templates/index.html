@@ -8,10 +8,10 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="https://dco.gitee.io/safari-pinned-tab.svg">
 	<meta name="msapplication-TileColor" content="#fdcb04" />
 	<meta name="theme-color" content="#fdcb04" />
-    <link rel="stylesheet" href="./lib/normalize.css">
-    <link rel="stylesheet" href="./lib/additional.css">
-    <link rel="stylesheet" href="./lib/style.css">
-	<script src="https://js.hcaptcha.com/1/api.js?hl=zh-CN" async defer></script>
+    	<link rel="stylesheet" href="./lib/normalize.css">
+    	<link rel="stylesheet" href="./lib/additional.css">
+    	<link rel="stylesheet" href="./lib/style.css">
+
 
 </head>
 
@@ -48,7 +48,7 @@
                             </div>
                             <hr class="hr-text" data-content="or">
                             <input type="text" class="form__input mb-8" name="email" id="email" placeholder="输入常用邮箱">
-							<div class="h-captcha" data-sitekey="bf3450d8-f636-4f7b-b99f-f78abe379cea"></div>
+				{{ hcaptcha }}
                             <button class="button btn-submit button_green border-none text-white mb-8">
                                 获取
                             </button>
