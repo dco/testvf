@@ -50,6 +50,6 @@ def reg():
             user.save()
             return 'is not exist!'
        else:
-        return render_template('index.html')
+        return 'verify bad'
 
 #app.run()
