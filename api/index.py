@@ -19,7 +19,7 @@ def strMD5(source):
 
 app = Flask(__name__)
 app.config.update(
-    HCAPTCHA_SITE_KEY = "bf3450d8-f636-4f7b-b99f-f78abe379cea"
+    HCAPTCHA_SITE_KEY = "bf3450d8-f636-4f7b-b99f-f78abe379cea",
     HCAPTCHA_SECRET_KEY = "0x8A842ebe7bDf2608CEf02DACb887Ab5D583A0D39"
 )
 
