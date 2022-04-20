@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from mongoengine import *
 import datetime
 import hashlib
+from flask_hcaptcha import hCaptcha
 
 connect(host="mongodb+srv://nodebb:9rGHFMefugTeASfF@cluster0.ntvar.mongodb.net/DCOCD?retryWrites=true&w=majority")
 
@@ -17,6 +18,12 @@ def strMD5(source):
     return md5.hexdigest()
 
 app = Flask(__name__)
+app.config.update(
+    HCAPTCHA_SITE_KEY = "bf3450d8-f636-4f7b-b99f-f78abe379cea"
+    HCAPTCHA_SECRET_KEY = "0x8A842ebe7bDf2608CEf02DACb887Ab5D583A0D39"
+)
+
+hcaptcha = hCaptcha(app)
 
 @app.route('/')
 def hello():
@@ -46,7 +53,6 @@ def reg():
         
 @app.route('/result')
 def result():
-   dict = {'phy':50,'che':60,'maths':70}
-   return render_template('result.html', result = dict)
+   return render_template('index.html')
 
 #app.run()
