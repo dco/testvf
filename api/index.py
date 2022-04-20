@@ -32,21 +32,24 @@ def home():
 
 @app.route('/reg', methods=['POST'])
 def reg():
-    now_time = datetime.datetime.utcnow()+datetime.timedelta(hours=8)
-    user = Users.objects.filter(email=request.form['email'])
-    print(user)
-    if user:
-        user=user[0]
-        user.update_time = now_time
-        user.tk = strMD5(user.email+str(now_time))
-        user.save()
-        return 'is exists'
-    else:
-        user = Users()
-        user.email = request.form['email']
-        user.update_time = now_time
-        user.tk = strMD5(request.form['email']+str(now_time))
-        user.save()
-        return 'is not exist!'
+    if hcaptcha.verify():
+        now_time = datetime.datetime.utcnow()+datetime.timedelta(hours=8)
+        user = Users.objects.filter(email=request.form['email'])
+        print(user)
+        if user:
+            user=user[0]
+            user.update_time = now_time
+            user.tk = strMD5(user.email+str(now_time))
+            user.save()
+            return 'is exists'
+        else:
+            user = Users()
+            user.email = request.form['email']
+            user.update_time = now_time
+            user.tk = strMD5(request.form['email']+str(now_time))
+            user.save()
+            return 'is not exist!'
+       else:
+        return render_template('index.html')
 
 #app.run()
