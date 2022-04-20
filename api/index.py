@@ -49,7 +49,7 @@ def reg():
             user.tk = strMD5(request.form['email']+str(now_time))
             user.save()
             return 'is not exist!'
-       else:
+    else:
         return 'verify bad'
 
 #app.run()
