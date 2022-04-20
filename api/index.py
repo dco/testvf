@@ -26,9 +26,8 @@ app.config.update(
 hcaptcha = hCaptcha(app)
 
 @app.route('/')
-def hello():
-    
-    return 'Hello, world'
+def home():
+   return render_template('index.html')
 
 
 @app.route('/reg', methods=['POST'])
@@ -42,7 +41,6 @@ def reg():
         user.tk = strMD5(user.email+str(now_time))
         user.save()
         return 'is exists'
-
     else:
         user = Users()
         user.email = request.form['email']
@@ -50,8 +48,5 @@ def reg():
         user.tk = strMD5(request.form['email']+str(now_time))
         user.save()
         return 'is not exist!'
-        
-@app.route('/result')
-def result():
-   return render_template('index.html')
+
 #app.run()
