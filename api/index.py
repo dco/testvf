@@ -3,7 +3,7 @@ from mongoengine import *
 import datetime
 import hashlib
 from flask_hcaptcha import hCaptcha
-
+import json
 connect(host="mongodb+srv://nodebb:9rGHFMefugTeASfF@cluster0.ntvar.mongodb.net/DCOCD?retryWrites=true&w=majority")
 
 class Users(Document):
@@ -29,6 +29,13 @@ hcaptcha = hCaptcha(app)
 def home():
    return render_template('index.html')
 
+@app.route('/handler', methods=['POST'])
+def login():
+    data = {
+    "reject": False,
+    "unchange": True
+    }
+    return json.dumps(data), 200
 
 @app.route('/reg', methods=['POST'])
 def reg():
