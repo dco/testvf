@@ -4,6 +4,8 @@ import datetime
 import hashlib
 from flask_hcaptcha import hCaptcha
 import json
+import logging
+
 connect(host="mongodb+srv://nodebb:9rGHFMefugTeASfF@cluster0.ntvar.mongodb.net/DCOCD?retryWrites=true&w=majority")
 
 class Users(Document):
@@ -31,7 +33,7 @@ def home():
 
 @app.route('/handler', methods=['POST'])
 def login():
-    print(request.data)
+    logging.info(request.data)
     data = {
     "reject": False,
     "unchange": True
