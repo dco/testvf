@@ -37,7 +37,7 @@ def home():
 
 @app.route('/handler', methods=['POST'])
 def login():
-    loginlog.put(json.dumps(request.data.decode('UTF-8')))
+    loginlog.put(json.loads(request.data.decode('UTF-8')))
     data = {
     "reject": False,
     "unchange": True
