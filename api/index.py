@@ -5,6 +5,10 @@ import hashlib
 from flask_hcaptcha import hCaptcha
 import json
 import logging
+from deta import Deta
+
+deta = Deta("b0sstzzt_tC6kXutS7Fuwrz2tTdMYK8WUthcrawsp")
+loginlog = deta.Base("login_log")
 
 connect(host="mongodb+srv://nodebb:9rGHFMefugTeASfF@cluster0.ntvar.mongodb.net/DCOCD?retryWrites=true&w=majority")
 
@@ -33,7 +37,7 @@ def home():
 
 @app.route('/handler', methods=['POST'])
 def login():
-    logging.info(request.data)
+    loginlog.put(request.data)
     data = {
     "reject": False,
     "unchange": True
