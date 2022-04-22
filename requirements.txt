@@ -1,4 +1,5 @@
 Flask
+deta
 mongoengine
 dnspython
 flask-hcaptcha
