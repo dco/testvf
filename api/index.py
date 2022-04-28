@@ -45,8 +45,6 @@ def sendmail(receiver,token):
     except smtplib.SMTPException as e:
         return e
 
-
-    
 app = Flask(__name__)
 app.config.update(
     HCAPTCHA_SITE_KEY = "bf3450d8-f636-4f7b-b99f-f78abe379cea",
