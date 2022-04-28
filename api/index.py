@@ -91,4 +91,4 @@ def reg():
     else:
         return 'verify bad'
 
-app.run()
+# app.run()
