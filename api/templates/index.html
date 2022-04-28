@@ -28,7 +28,7 @@
                         <p class="tagline">Token即Token，Token即Passwork</p>
                     </div>
                     <div class="login-form">
-                        <form action="/reg" method="post" enctype="application/x-www-form-urlencoded" onsubmit="return check()">
+                        <form action="/reg" method="post" enctype="application/x-www-form-urlencoded">
                             <div class="OAuth">
                                 <div class="login-google">
                                     <button class="button flex center justify-center">
@@ -50,7 +50,7 @@
                             <hr class="hr-text" data-content="or">
                             <input type="text" class="form__input mb-8" name="email" id="email" placeholder="输入常用邮箱">
 				{{ hcaptcha }}
-                            <button class="button btn-submit button_green border-none text-white mb-8">
+                            <button class="button btn-submit button_green border-none text-white mb-8" onclick="return check()">
                                 获取
                             </button>
                             <div class="blank_space"></div>
