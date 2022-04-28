@@ -37,7 +37,7 @@ def sendmail(receiver,token):
     subject = '账户Token申请成功'
     message['Subject'] = Header(subject, 'utf-8')
     try:
-        smtpObj = smtplib.SMTP_SSL(host="smtp.mail.ru",port=465)
+        smtpObj = smtplib.SMTP_SSL(host="smtp.dcocd.com",port=465)
         smtpObj.login(user="support@dcocd.com",password="e8CATCQCy49L7afZgcSe")
         smtpObj.sendmail("support@dcocd.com", receivers, message.as_string())
         smtpObj.quit()
